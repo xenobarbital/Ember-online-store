@@ -4,8 +4,9 @@ export default Ember.Controller.extend({
     activeForm: false,
     shopName: '',
     shopDetails: '',
+
     isValid: Ember.computed('shopName', 'shopDetails', function() {
-        return this.get('shopName').length > 5 && this.get('shopDetails').length > 5;
+        return this.get('shopName') && this.get('shopDetails');
     }),
     isDisabled: Ember.computed.not('isValid'),
 
@@ -14,7 +15,12 @@ export default Ember.Controller.extend({
             const newShop = this.get('store').createRecord('shop', {
                 shopName: this.get('shopName'),
                 shopDetails: this.get('shopDetails'),
-                shopStock: []
+                // shopStock: []
+                // shopStock: [{
+                //     name: 'test',
+                //     description: 'test',
+                //     price: 123
+                // }]
             });
             newShop.save().then(() => {
                 this.set('shopName', '');
