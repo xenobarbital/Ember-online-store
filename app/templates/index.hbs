@@ -5,14 +5,22 @@
             <thead>
                 <th>Shop  name</th>
                 <th>Description</th>
-                <th>Items in stock</th>
             </thead>
             <tbody>
                 {{#each model as |shop|}}
                     <tr>
-                        <td>{{shop.shopName}}</td>
+                        <td>
+                            {{#link-to 'shop.stock' shop.id}}
+                                {{shop.shopName}}
+                            {{/link-to}}
+                        </td>
                         <td>{{shop.shopDetails}}</td>
-                        <td>{{shop.shopStock.length}}</td>
+                        <td>
+                            {{#link-to 'shop.edit' shop.id class="btn btn-success btn-xs"}}
+                                Edit
+                            {{/link-to}}
+                            <button class="btn btn-danger btn-xs" {{action 'deleteShop' shop}}>Delete</button>
+                        </td>
                     </tr>
                 {{/each}}
             </tbody>

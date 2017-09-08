@@ -29,6 +29,10 @@ export default Ember.Controller.extend({
             } else {
                 this.set('activeForm', true);
             }
+        },
+
+        deleteShop(shop) {
+            shop.destroyRecord();
         }
     }
 });
