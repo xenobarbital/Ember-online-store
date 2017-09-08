@@ -20,7 +20,7 @@ export default Ember.Controller.extend({
                 description: this.get('itemDescription'),
                 price: this.get('itemPrice')
             };
-            console.log(this.model.shopStock);
+            // *** stuck here ***
         },
 
         toggleForm() {
