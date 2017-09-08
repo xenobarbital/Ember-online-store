@@ -1,1 +1,21 @@
-{{outlet}}
+<h2>Edit shop</h2>
+
+<div class="form-horizontal">
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Shop name</label>
+        <div class="col-sm-8">
+            {{input type="text" value=model.shopName class="form-control" placeholder="Shop name"}}
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Shop description</label>
+        <div class="col-sm-8">
+            {{input type="text" value=model.shopDetails class="form-control" placeholder="Shop details"}}
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-2">
+            <button type="submit" class="btn btn-default" {{action 'saveShop' model}}>Save</button>
+        </div>
+    </div>
+</div>
