@@ -1,4 +1,20 @@
 <div class="container">
-    {{partial 'navbar'}}
-    {{outlet}}
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                {{#link-to 'index' class='navbar-brand'}}
+                    Online Stores
+                {{/link-to}}
+            </div>
+            <div class="collapse navbar-collapse" collapse navbar-collapse>
+                <ul class="nav navbar-nav">
+                    {{#link-to 'about' tagName='li'}}<a href="">About</a>{{/link-to}}
+                    {{#link-to 'stores' tagName='li'}}<a href="">Stores</a>{{/link-to}}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="body">
+        {{outlet}}
+    </div>
 </div>

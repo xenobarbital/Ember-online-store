@@ -7,10 +7,15 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('shop', function() {
-      this.route('stock', { path: '/:shop_id/stock' });
-      this.route('edit', { path: '/:shop_id/edit' });
-  });
+    this.route('about');
+    this.route('stores');
+    this.route('shop', function() {
+        this.route('items', { path: '/:shop_id/items' });
+        this.route('edit', { path: '/:shop_id/edit' });
+        this.route('item', function() {
+            this.route('edit', { path: '/:item_id/edit' });
+        });
+    });
 });
 
 export default Router;

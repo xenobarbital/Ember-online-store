@@ -1,7 +1,7 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  shopName: DS.attr('string'),
-  shopDetails: DS.attr('string'),
-  shopStocks: DS.hasMany('shop-stock')
+  shopName: DS.attr(),
+  shopDetails: DS.attr(),
+  items: DS.hasMany('item')
 });

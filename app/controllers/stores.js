@@ -14,13 +14,7 @@ export default Ember.Controller.extend({
         saveShop() {
             const newShop = this.get('store').createRecord('shop', {
                 shopName: this.get('shopName'),
-                shopDetails: this.get('shopDetails'),
-                // shopStock: []
-                // shopStock: [{
-                //     name: 'test',
-                //     description: 'test',
-                //     price: 123
-                // }]
+                shopDetails: this.get('shopDetails')
             });
             newShop.save().then(() => {
                 this.set('shopName', '');
@@ -30,11 +24,7 @@ export default Ember.Controller.extend({
         },
 
         toggleForm() {
-            if (this.get('activeForm')) {
-                this.set('activeForm', false);
-            } else {
-                this.set('activeForm', true);
-            }
+            this.toggleProperty('activeForm');
         },
 
         deleteShop(shop) {

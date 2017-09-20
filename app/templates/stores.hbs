@@ -1,0 +1,59 @@
+<h3><small>Our Stores</small></h3>
+
+<div class="well">
+    <table class="table table-striped table-condensed">
+        <thead>
+            <th>Shop name</th>
+            <th>Description</th>
+        </thead>
+        <tbody>
+            {{#each model as |shop|}}
+                <tr>
+                    <td>
+                        {{#link-to 'shop.items' shop.id}}
+                            {{shop.shopName}}
+                        {{/link-to}}
+                    </td>
+                    <td>{{shop.shopDetails}}</td>
+                    <td>
+                        {{#link-to 'shop.edit' shop.id class="btn btn-success btn-xs"}}
+                            Edit
+                        {{/link-to}}
+                        <button class="btn btn-danger btn-xs" {{action 'deleteShop' shop}}>Delete</button>
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+
+{{#if activeForm}}
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Shop name</label>
+            <div class="col-sm-8">
+                {{input type="text" value=shopName class="form-control" placeholder="Shop name"}}
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Shop description</label>
+            <div class="col-sm-8">
+                {{input type="text" value=shopDetails class="form-control" placeholder="Shop details"}}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-2">
+                <button type="submit" class="btn btn-default" disabled={{isDisabled}} {{action 'saveShop'}}>Save</button>
+                <button type="submit" class="btn btn-default" {{action 'toggleForm'}}>Back</button>
+            </div>
+        </div>
+    </div>
+{{else}}
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-sm-3">
+                <button type="submit" class="btn btn-default" {{action 'toggleForm'}}>Open form</button>
+            </div>
+        </div>
+    </div>
+{{/if}}
